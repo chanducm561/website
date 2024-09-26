@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
+.mass-body {
+    background-color: rgb(248, 248, 248);
+}
+
+.anchor {
+    margin-left: auto;
+}
+.nav-logo {
+    height: 80px;
+    width: 80px;
+}
+.anchor-mass {
+    font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto, Oxygen, Ubuntu, Cantarell, open sans, helvetica neue, sans-serif;
+}
+.anchor-mass:hover {
+    color: black;
+}
+.home-body {  
+    height: 80vh;    
+}
+.box-left {
+    text-align: end;         
+}
+.box-right {
+    text-align: left;
+}
+.home-name {
+    letter-spacing: 1px;
+    font-weight: bold; 
+}
+.home-para {
+    padding-left: 150px; 
+    font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto, Oxygen, Ubuntu, Cantarell, open sans, helvetica neue, sans-serif;
+        
+}
+.about {
+    text-align: center;   
+}
+.about-para {
+    text-align: center;
+    padding-left: 80px;
+    padding-right: 80px;
+    font-family: "SUSE", sans-serif;
+}
