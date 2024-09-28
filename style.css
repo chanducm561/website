@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
 .mass-body {
     background-color: rgb(248, 248, 248);
+   
 }
 
 .anchor {
@@ -25,10 +26,6 @@
 .box-right {
     text-align: left;
 }
-.home-name {
-    letter-spacing: 1px;
-    font-weight: bold; 
-}
 .home-para {
     padding-left: 150px; 
     font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto, Oxygen, Ubuntu, Cantarell, open sans, helvetica neue, sans-serif;
@@ -41,5 +38,28 @@
     text-align: center;
     padding-left: 80px;
     padding-right: 80px;
-    font-family: "SUSE", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto, Oxygen, Ubuntu, Cantarell, open sans, helvetica neue, sans-serif;
 }
+.contact-us {
+    text-align: center;
+    
+}  
+
+.social {
+    padding: 5px;
+    
+}
+.social-icons {
+    text-align: center;
+}
+.footer {
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto, Oxygen, Ubuntu, Cantarell, open sans, helvetica neue, sans-serif;
+    line-height: 24px;
+    color: inherit;
+    border-bottom: 1px solid var(--secondary);
+    font-size: 15px;
+   
+}
+
+
