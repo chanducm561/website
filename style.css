@@ -1,65 +1,289 @@
-@import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
-.mass-body {
-    background-color: rgb(248, 248, 248);
-   
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap');
+
+:root {
+    --primary: #00ff88;
+    --secondary: #00d4ff;
+    --dark: #0f172a;
+    --darker: #020617;
+    --text-light: #f8fafc;
+    --text-muted: #94a3b8;
+    --glass: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
 }
 
-.anchor {
-    margin-left: auto;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+body {
+    background-color: var(--darker);
+    color: var(--text-light);
+    font-family: 'Outfit', sans-serif;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Background Decoration */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, #1e293b 0%, #020617 100%);
+    z-index: -1;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: -10%;
+    right: -10%;
+    width: 400px;
+    height: 400px;
+    background: var(--primary);
+    filter: blur(150px);
+    opacity: 0.1;
+    z-index: -1;
+    animation: move 20s infinite alternate;
+}
+
+@keyframes move {
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(-100px, 100px);
+    }
+}
+
+/* Navbar */
+.navbar {
+    padding: 1.5rem 0;
+    transition: all 0.4s ease;
+    background: transparent;
+    backdrop-filter: blur(10px);
+}
+
+.navbar.scrolled {
+    padding: 0.8rem 0;
+    background: rgba(15, 23, 42, 0.9);
+    border-bottom: 1px solid var(--glass-border);
+}
+
 .nav-logo {
-    height: 80px;
-    width: 80px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--primary);
+    transition: transform 0.3s ease;
 }
-.anchor-mass {
-    font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto, Oxygen, Ubuntu, Cantarell, open sans, helvetica neue, sans-serif;
+
+.nav-logo:hover {
+    transform: scale(1.1) rotate(5deg);
 }
-.anchor-mass:hover {
-    color: black;
+
+.nav-link {
+    color: var(--text-light) !important;
+    font-weight: 500;
+    margin: 0 1rem;
+    position: relative;
+    transition: color 0.3s ease;
 }
-.home-body {  
-    height: 80vh;    
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: var(--primary);
+    transition: width 0.3s ease;
 }
-.box-left {
-    text-align: end;         
+
+.nav-link:hover::after {
+    width: 100%;
 }
-.box-right {
-    text-align: left;
+
+.nav-link:hover {
+    color: var(--primary) !important;
 }
+
+/* Hero Section */
+.home-body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 100px;
+}
+
+.home-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 8vw, 5rem);
+    font-weight: 700;
+    background: linear-gradient(45deg, var(--text-light), var(--primary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1.5rem;
+}
+
 .home-para {
-    padding-left: 150px; 
-    font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto, Oxygen, Ubuntu, Cantarell, open sans, helvetica neue, sans-serif;
-        
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin-bottom: 2rem;
 }
+
+.box-right img {
+    border-radius: 50%;
+    border: 6px solid var(--glass-border);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    object-fit: cover;
+    box-shadow: 0 0 40px rgba(0, 255, 136, 0.15);
+    width: 350px;
+    height: 350px;
+}
+
+.box-right img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 60px rgba(0, 255, 136, 0.3);
+    border-color: var(--primary);
+}
+
+/* Sections General */
+section {
+    padding: 100px 0;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+}
+
+.section-title {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 15px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: var(--primary);
+    border-radius: 2px;
+}
+
+/* About Section */
 .about {
-    text-align: center;   
+    background: var(--glass);
+    border-radius: 20px;
+    padding: 60px;
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
 }
+
 .about-para {
-    text-align: center;
-    padding-left: 80px;
-    padding-right: 80px;
-    font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto, Oxygen, Ubuntu, Cantarell, open sans, helvetica neue, sans-serif;
+    font-size: 1.1rem;
+    color: var(--text-muted);
 }
+
+/* Contact Us */
 .contact-us {
-    text-align: center;
-    
-}  
+    background: linear-gradient(135deg, rgba(0, 255, 136, 0.05), rgba(0, 212, 255, 0.05));
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    padding: 60px 40px;
+    margin-top: 50px !important;
+}
+
+.social-icons {
+    margin-top: 2rem;
+}
 
 .social {
-    padding: 5px;
-    
+    display: inline-block;
+    padding: 15px;
+    margin: 0 10px;
+    background: var(--glass);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border: 1px solid var(--glass-border);
 }
-.social-icons {
-    text-align: center;
+
+.social:hover {
+    transform: translateY(-5px);
+    background: var(--primary);
+    border-color: var(--primary);
 }
+
+.social img {
+    filter: brightness(1);
+    transition: filter 0.3s ease;
+}
+
+.social:hover img {
+    filter: brightness(0) invert(1);
+}
+
+/* Footer */
 .footer {
+    padding: 40px 0;
     text-align: center;
-    font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto, Oxygen, Ubuntu, Cantarell, open sans, helvetica neue, sans-serif;
-    line-height: 24px;
-    color: inherit;
-    border-bottom: 1px solid var(--secondary);
-    font-size: 15px;
-   
+    border-top: 1px solid var(--glass-border);
+    color: var(--text-muted);
 }
 
+/* Utilities */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .home-body {
+        text-align: center;
+        padding-top: 150px;
+    }
+
+    .box-left,
+    .box-right {
+        width: 100%;
+        text-align: center !important;
+    }
+
+    .box-right {
+        margin-top: 3rem;
+    }
+
+    .home-para {
+        margin: 0 auto 2rem;
+    }
+
+    .about {
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+}
